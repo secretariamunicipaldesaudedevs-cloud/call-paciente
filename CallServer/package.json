@@ -1,0 +1,24 @@
+{
+  "name": "e-sus-ext-socket",
+  "version": "0.0.1",
+  "description": "socket server for e-sus chrome-extension",
+  "bin": "./index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "pkg": {
+    "assets": [
+      "src/**/*",
+      "assets/**/*",
+      "css/**/*"
+    ]
+  }
+}

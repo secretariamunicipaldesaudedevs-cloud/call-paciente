@@ -1,0 +1,199 @@
+:root {
+  --main-green: #006b65;
+  --light-green: #03847c;
+  --light-accent: #f5c443;
+  --dark-accent: #f3a93f;
+  --darker-accent: #bb802e;
+  --white: #f0f0f0;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("../assets/font/Raleway.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica", sans-serif;
+}
+
+body {
+  background-color: var(--main-green);
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 8px 2vw;
+  background-color: var(--light-green);
+  color: var(--white);
+  gap: 2vw;
+}
+
+#prefeitura {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--light-accent);
+}
+
+#sec-saude {
+  font-size: 1.1rem;
+  color: var(--white);
+}
+
+#logo {
+  width: 75px;
+}
+
+#wrapper {
+  display: flex;
+}
+
+#chamadas {
+  flex-basis: 65%;
+  padding: 4vh;
+}
+
+.chamada {
+  border-radius: 16px;
+  background-color: var(--white);
+  border: 8px solid var(--light-green);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nome-paciente {
+  font-size: 4vw;
+  width: 100%;
+  font-weight: 800;
+  text-align: center;
+  color: var(--dark-accent);
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+  -webkit-text-stroke: 1px var(--darker-accent);
+}
+
+.nome-sala {
+  text-align: center;
+  font-size: 2vw;
+  color: var(--main-green);
+  font-weight: 800;
+}
+
+.chamada-detalhes {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.chamada-detalhes p {
+  color: var(--main-green);
+  padding: 0 1vw;
+}
+
+#historico-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+#historico {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+  justify-content: center;
+}
+
+.h-chamada {
+  display: flex;
+  border: 4px solid var(--light-green);
+  justify-content: space-between;
+  padding: 8px;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-weight: 800;
+}
+
+.h-chamada p {
+  flex: 1;
+  text-align: center;
+  color: var(--main-green);
+  padding: 0 1vw;
+}
+
+.h-chamada p:nth-child(1) {
+  text-align: left;
+}
+
+.h-chamada p:nth-child(3) {
+  text-align: right;
+}
+
+#h-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+#ads {
+  padding: 4vh 0;
+  height: 100vh;
+  flex-basis: 35%;
+  background-color: var(--light-green);
+}
+
+#video {
+  display: grid;
+  place-content: center;
+}
+
+#video iframe {
+  width: 32vw;
+  height: 32vh;
+  border-radius: 8px;
+  background: var(--light-green);
+}
+
+.time-container {
+  background-color: var(--light-green);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  height: 50%;
+  display: grid;
+  place-content: center;
+}
+
+#location {
+  font-size: 1vw;
+  margin-bottom: 10px;
+}
+
+#time {
+  font-size: 4vw;
+  margin-bottom: 10px;
+}
+
+#date {
+  font-size: 1.25vw;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
