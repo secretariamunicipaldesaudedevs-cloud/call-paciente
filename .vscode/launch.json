@@ -5,7 +5,7 @@
             "name": "Debug Servidor",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceFolder}/index.js",
+            "program": "${workspaceFolder}/call-paciente/CallServer/index.js",
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "skipFiles": [
