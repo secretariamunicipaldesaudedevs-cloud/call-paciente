@@ -37,8 +37,13 @@ function createHistory(data) {
 function speak(text) {
   if ("speechSynthesis" in window) {
     const speech = new SpeechSynthesisUtterance(text);
+    const voices = speechSynthesis.getVoices();
+    speech.voice = voices.find(v =>
+      v.name.includes("Microsoft Daniel - Portuguese (Brazil)")
+    )
     speech.lang = "pt-BR";
     speech.rate = 1.15;
+    speech.pitch = 1.0;
     window.speechSynthesis.speak(speech);
   } else {
     console.error("API Web Speech não é suportada neste navegador.");
@@ -51,6 +56,7 @@ socket.on("newData", (data) => {
   audio.play();
   setTimeout(() => {
     speak(data[0].currentPerson);
+    speak(data[0].roomName);
   }, 1000);
 });
 

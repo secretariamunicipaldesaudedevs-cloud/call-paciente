@@ -1,9 +1,9 @@
 :root {
   --main-green: #006b65;
   --light-green: #03847c;
-  --light-accent: #f5c443;
-  --dark-accent: #f3a93f;
-  --darker-accent: #bb802e;
+  --light-accent: #47b208;
+  --dark-accent: #18537e;
+  --darker-accent: #216c67;
   --white: #f0f0f0;
 }
 
@@ -161,9 +161,10 @@ header {
 
 #video iframe {
   width: 32vw;
-  height: 32vh;
+  height: 34vh;
   border-radius: 8px;
   background: var(--light-green);
+  border: 4px,solid, rgb(8, 56, 8);
 }
 
 .time-container {
