@@ -1,33 +1,6 @@
-SISTEMA DE CHAMADA DE PACIENTES PROVIDENCIADO PELA PREFEITURA DE PRESIDENTE MACEDO. ADAPTADO PARA PREFEITURA DE FAZENDA RIO GRANDE.
-VERSION IMPLANTADA: 1
-VERSION EM PRODUÇAO: 2.0
+SISTEMA DE CHAMADADE PACIENTES - e-SUS PEC
 
-FUNCIONAMENTO TECNOLOGIAS E OUTRAS ESPECIFICAÇÕES:
-
-SERVER:
-NODE.JS - WEB SERVER, WEBSOCKET
-HTML - INDEX
-CSS - STYLES
-
-CLIENTE:
-HTML - PLUGIN
-JAVASCRIPT - WEBSOCKET
-
-SISTEMA CLIENTE SERVIDOR USANDO WEB SOCKET; O PLUGIN INSTALADO NO NAVEGADOR REALIZA UM POST COM DADOS DA FILA DE ATENDIMETO DO SITE DE ESUSPEC
-ESSES DADOS SERIAM OS NOMMES DOS PACIENTE E PROFISSIONAL DE SAUDE, SALA DE ATENDIEMTOE HORARIO DA CHAMADA.
-
-LADO DO SERVIDOR:
-O SISTEMA EXECUTA O NODE.JS E CRIA UM SERVIDOR WEB E ABRE A PORTA :53525 E MANTEM UMA ESCUTA ATIVA.
- 
-LADO DO CLIENTE:
-O NAVEGADOR (PLUGIN), DEPOIS DE RECOPILAR OS DADOS, ABRE UMA CONEXÃO VIA WEB SOCKET PRO SERVIDOR, HTTP://[IP/HOSTNAME]:[PORTA], E USA O METODO POST COM OS DADOS EM FORMATO JSON.
-
-
-
-
-
-
-Sistema de Chamada de Pacientes - e-SUS PEC
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Histórico
 
@@ -37,10 +10,15 @@ Sistema de chamada de pacientes desenvolvido originalmente pela Prefeitura de Pr
 Adaptação:
 Adaptado para utilização na Prefeitura Municipal de Fazenda Rio Grande.
 
-Item	Informação
-Versão implantada originalmente	1.0
-Versão atual em produção	2.0
-Responsável pela adaptação	Secretaria Municipal de Saúde / TI
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Item	                              Informação
+
+Versão implantada originalmente	      1.0
+Versão atual em produção	          2.0
+Responsável pela adaptação	          Secretaria Municipal de Saúde / TI
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Arquitetura do Sistema
 
@@ -50,24 +28,21 @@ e-SUS PEC
       │
       │
       ▼
-Extensão Chrome
-(Content Script)
+Extensão Chrome(Content Script)
       │
       │ HTTP POST (JSON)
       ▼
-Servidor Node.js
-(Porta 53525)
+Servidor Node.js(Porta 53525)
       │
       │ Socket.IO
       ▼
-Painel de chamadas
-(TV)
+Painel de chamadas(TV)
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Tecnologias Utilizadas
 
-Servidor:
+@Servidor:
 Node.js
 Express.js
 Socket.IO
@@ -80,7 +55,7 @@ index.html
 socket.js
 styles.css
 
-Cliente:
+@Cliente:
 A integração com o e-SUS ocorre através de uma Extensão do Google Chrome.
 Tecnologias:
 HTML
@@ -89,8 +64,10 @@ DOM
 Fetch API
 Content Script
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Funcionamento
+
 1. Coleta das informações
 
 Quando o profissional de saúde pressiona o botão "Chamar" dentro do e-SUS PEC, a extensão:
@@ -160,6 +137,7 @@ atualiza o histórico;
 reproduz o áudio;
 realiza a leitura do nome utilizando a Web Speech API.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Fluxo completo
 Médico
@@ -204,13 +182,17 @@ Leitura do nome
 
 Atualização do histórico
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Portas utilizadas
+
 Porta	Função
 53525	Servidor HTTP + Socket.IO
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Estrutura dos dados
+
 {
     "roomName": "...",
     "currentPerson": "...",
@@ -226,16 +208,19 @@ Após o processamento, o servidor adiciona:
     "time":"13:55"
 }
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Componentes do sistema
-Extensão
+
+@Extensão
 
 Responsável por:
 
 detectar o clique em Chamar;
 extrair informações do e-SUS;
 enviar o JSON ao servidor.
-Servidor
+
+@Servidor
 
 Responsável por:
 
@@ -243,7 +228,8 @@ receber as requisições;
 armazenar o histórico;
 distribuir as chamadas aos painéis;
 manter as conexões WebSocket.
-Painel
+
+@Painel
 
 Responsável por:
 
@@ -256,13 +242,14 @@ exibir vídeos institucionais;
 exibir previsão do tempo;
 exibir relógio.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Melhorias implementadas
 
-Você também pode manter um registro das alterações feitas na adaptação:
+Registro das alterações:
 
-Versão	Alteração
-2.0.0	Adicionado res.sendStatus(200) para eliminar o erro apresentado pela extensão após o envio do POST.
-2.0.1	Ajustes visuais do painel.
-2.0.2	Atualização automática do painel via evento reload.
-2.x	Melhorias nos logs, tratamento de erros e otimizações.
+Versão	    Alteração
+2.0.0	    Adicionado res.sendStatus(200) para eliminar o erro apresentado pela extensão após o envio do POST.
+2.0.1	    Ajustes visuais do painel.
+2.0.2	    Atualização automática do painel via evento reload.
+2.x	        Melhorias nos logs, tratamento de erros e otimizações.
