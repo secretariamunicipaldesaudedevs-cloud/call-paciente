@@ -49,6 +49,7 @@ Socket.IO
 HTML5
 CSS3
 JavaScript
+
 Arquivos principais:
 index.js
 index.html
@@ -57,6 +58,7 @@ styles.css
 
 @Cliente:
 A integração com o e-SUS ocorre através de uma Extensão do Google Chrome.
+
 Tecnologias:
 HTML
 JavaScript
