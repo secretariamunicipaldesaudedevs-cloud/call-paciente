@@ -32,6 +32,7 @@ header {
   background-color: var(--light-green);
   color: var(--white);
   gap: 2vw;
+  border-radius: 20px;
 }
 
 #prefeitura {
@@ -51,6 +52,8 @@ header {
 
 #wrapper {
   display: flex;
+  background-color: #800404;
+  border-radius: 20px;
 }
 
 #chamadas {
@@ -151,7 +154,8 @@ header {
   padding: 4vh 0;
   height: 100vh;
   flex-basis: 35%;
-  background-color: var(--light-green);
+  background-color: var(--dark-accent);
+  border-radius: 20px;
 }
 
 #video {
@@ -185,8 +189,9 @@ header {
 }
 
 #time {
-  font-size: 4vw;
+  font-size: 3vw;
   margin-bottom: 10px;
+  color: #800404;
 }
 
 #date {
