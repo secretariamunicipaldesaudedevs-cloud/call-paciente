@@ -203,3 +203,71 @@ footer {
   bottom: 0;
   width: 100vw;
 }
+
+
+/* stilos do carrossel */
+/* Seção do Carrossel Inferior Ativa */
+
+.historico-section {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.historico-section h2 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.carrossel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carrossel-track {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+}
+
+/* Animação aplicada via JS quando transbordar */
+.carrossel-animado {
+    animation: rolarCarrossel 25s linear infinite;
+}
+
+.carrossel-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes rolarCarrossel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.bloco-mini {
+    flex: 0 0 130px;
+    padding: 12px;
+    border-radius: 12px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: surgimento 0.3s ease-out;
+}
+
+.bloco-mini .mini-senha {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.bloco-mini .mini-sala {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2px 6px;
+    border-radius: 6px;
+    width: fit-content;
+}
