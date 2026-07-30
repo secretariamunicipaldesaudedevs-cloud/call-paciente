@@ -6,3 +6,5 @@ curl -X POST http://localhost:53525/ \
     "currentPerson":"JOSE MENDEZ",
     "currentDoctor":"YOSAFAT"
   }'
+
+  #simula o comportamento do plugin do navegador
