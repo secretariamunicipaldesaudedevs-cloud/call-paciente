@@ -37,7 +37,7 @@ header {
 }
 
 #chamadas {
-  border: 2px solid rgb(173, 113, 252);
+  border: 1px solid rgb(173, 113, 252);
   border-radius: 8px;
 }
 
@@ -53,6 +53,9 @@ header {
   font-weight: 800;
   font-size: 1.5rem;
   color: var(--light-accent);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  backdrop-filter: blur(5px);
 }
 
 #sec-saude {
@@ -81,9 +84,9 @@ header {
   border-radius: 10px;
   background: linear-gradient(90deg, #52c0db 60%, #0084ff 100%);
   border: 2px solid royalblue;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
   color: #fff;
-  animation: surgimento 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation: surgimento 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   transition: all 0.8s ease;
 
 }
@@ -123,12 +126,14 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   font-weight: 800;
+  background: #6366f1;
+  border-radius: 18px;
 }
 
 .chamada-detalhes p {
-  color: var(--main-green);
+  color: rgb(211, 221, 248);
   padding: 0 1vw;
 }
 
