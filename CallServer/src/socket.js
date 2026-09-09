@@ -1,5 +1,5 @@
 const socket = io();
-const audio = new Audio("../assets/sound/ring.mp3");
+const audio = new Audio("../assets/sound/mixkit-software-interface-start-2574.wav");
 
 function mostRecentCall(data) {
   const destaque = document.getElementById("destaque");

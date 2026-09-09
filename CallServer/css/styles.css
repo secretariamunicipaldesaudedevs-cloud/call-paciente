@@ -32,8 +32,22 @@ header {
   background-color: var(--light-green);
   color: var(--white);
   gap: 2vw;
-  border-radius: 20px;
+  border-radius: 8px;
+  border-style: 4px solid blue;
 }
+
+#chamadas {
+  border: 2px solid rgb(173, 113, 252);
+  border-radius: 8px;
+}
+
+/*.wrapper {
+  border-top: 4px solid blue;
+  border-bottom: 2px dashed gray;
+  border-left: 1px solid black;
+  border-right: none;
+  border: 2px solid #6366f1;
+}*/
 
 #prefeitura {
   font-weight: 800;
@@ -52,8 +66,10 @@ header {
 
 #wrapper {
   display: flex;
-  background-color: #800404;
-  border-radius: 20px;
+  background-color: #412f50;
+  border-radius: 8px;
+  border-style: 4px solid blue;
+  border: 2px solid #6366f1;
 }
 
 #chamadas {
@@ -61,28 +77,46 @@ header {
   padding: 4vh;
 }
 
-.chamada {
-  border-radius: 16px;
-  background-color: var(--white);
-  border: 8px solid var(--light-green);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.chamada { /* ultima chamada */
+  border-radius: 10px;
+  background: linear-gradient(90deg, #52c0db 60%, #0084ff 100%);
+  border: 2px solid royalblue;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  animation: surgimento 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  transition: all 0.8s ease;
+
 }
 
 .nome-paciente {
   font-size: 4vw;
-  width: 100%;
+  width: 80%;
   font-weight: 800;
   text-align: center;
-  color: var(--dark-accent);
+  color: #f0f0f0;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  padding: 8px 12px;
+  margin-top: 2px;
+  letter-spacing: 1px;
+  /*color: var(--dark-accent);*/
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-  -webkit-text-stroke: 1px var(--darker-accent);
+  /*-webkit-text-stroke: 1px var(--darker-accent);*/
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .nome-sala {
   text-align: center;
-  font-size: 2vw;
-  color: var(--main-green);
+  text-transform: uppercase;
+  font-size: 4vw;
+  color: #f0f0f0;
   font-weight: 800;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .chamada-detalhes {
@@ -206,9 +240,9 @@ footer {
 
 
 /* stilos do carrossel */
-/* Seção do Carrossel Inferior Ativa */
 
-.historico-section {
+.historico-section { /* Seção do Carrossel Inferior Ativa */
+
     margin-top: 25px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -270,4 +304,46 @@ footer {
     padding: 2px 6px;
     border-radius: 6px;
     width: fit-content;
+}
+
+
+
+
+
+/* Botão Flutuante (Simulador) Reativado */
+.btn-floating {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #6366f1;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: transform 0.2s;
+}
+
+.btn-floating:active {
+    transform: scale(0.9);
+}
+
+
+@keyframes surgimento {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
