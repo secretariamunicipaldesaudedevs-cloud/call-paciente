@@ -42,8 +42,11 @@ function speak(text) {
     speech.voice = voices.find(v =>
       v.name.includes("Microsoft Maria - Portuguese (Brazil)")    
     )
+
     console.log(speech.voice);
-    console.log("vozes")
+    console.log(speechSynthesis.getVoices());
+    console.log("vozes");
+
     speech.lang = "pt-BR";
     speech.rate = 1.15;
     speech.pitch = 1.0;

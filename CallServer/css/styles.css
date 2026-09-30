@@ -36,6 +36,14 @@ header {
   border-style: 4px solid blue;
 }
 
+#ubs {
+  display: flex;
+  font-size: 80px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(0, 255, 179);
+
+}
+
 #chamadas {
   border: 1px solid rgb(173, 113, 252);
   border-radius: 8px;
