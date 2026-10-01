@@ -1,5 +1,5 @@
 const socket = io();
-const audio = new Audio("../assets/sound/ring.mp3");
+const audio = new Audio("../assets/sound/mixkit-software-interface-start-2574.wav");
 
 function mostRecentCall(data) {
   const destaque = document.getElementById("destaque");
@@ -34,13 +34,19 @@ function createHistory(data) {
   }
 }
 
-function speak(text) {
+//funcao para carregar o syntetizador de voz
+function speak(text) { 
   if ("speechSynthesis" in window) {
     const speech = new SpeechSynthesisUtterance(text);
     const voices = speechSynthesis.getVoices();
     speech.voice = voices.find(v =>
-      v.name.includes("Microsoft Daniel - Portuguese (Brazil)")
+      v.name.includes("Microsoft Maria - Portuguese (Brazil)")    
     )
+
+    console.log(speech.voice);
+    console.log(speechSynthesis.getVoices());
+    console.log("vozes");
+
     speech.lang = "pt-BR";
     speech.rate = 1.15;
     speech.pitch = 1.0;

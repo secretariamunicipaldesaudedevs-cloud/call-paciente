@@ -19,6 +19,11 @@ app.get("/reload", (req, res) => {
     res.sendStatus(200);
 });
 
+app.get("/debug", (req, res) => {
+  io.emit("debug");
+  res.sendStatus(200);
+});
+
 let chamadas = [];
 app.post("/", (req, res) => {
   // console.log("received a post");

@@ -32,12 +32,38 @@ header {
   background-color: var(--light-green);
   color: var(--white);
   gap: 2vw;
+  border-radius: 8px;
+  border-style: 4px solid blue;
 }
+
+#ubs {
+  display: flex;
+  font-size: 80px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(0, 255, 179);
+
+}
+
+#chamadas {
+  border: 1px solid rgb(173, 113, 252);
+  border-radius: 8px;
+}
+
+/*.wrapper {
+  border-top: 4px solid blue;
+  border-bottom: 2px dashed gray;
+  border-left: 1px solid black;
+  border-right: none;
+  border: 2px solid #6366f1;
+}*/
 
 #prefeitura {
   font-weight: 800;
   font-size: 1.5rem;
   color: var(--light-accent);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  backdrop-filter: blur(5px);
 }
 
 #sec-saude {
@@ -51,6 +77,10 @@ header {
 
 #wrapper {
   display: flex;
+  background-color: #412f50;
+  border-radius: 8px;
+  border-style: 4px solid blue;
+  border: 2px solid #6366f1;
 }
 
 #chamadas {
@@ -58,40 +88,60 @@ header {
   padding: 4vh;
 }
 
-.chamada {
-  border-radius: 16px;
-  background-color: var(--white);
-  border: 8px solid var(--light-green);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.chamada { /* ultima chamada */
+  border-radius: 10px;
+  background: linear-gradient(90deg, #52c0db 60%, #0084ff 100%);
+  border: 2px solid royalblue;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+  color: #fff;
+  animation: surgimento 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  transition: all 0.8s ease;
+
 }
 
 .nome-paciente {
   font-size: 4vw;
-  width: 100%;
+  width: 80%;
   font-weight: 800;
   text-align: center;
-  color: var(--dark-accent);
+  color: #f0f0f0;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  padding: 8px 12px;
+  margin-top: 2px;
+  letter-spacing: 1px;
+  /*color: var(--dark-accent);*/
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-  -webkit-text-stroke: 1px var(--darker-accent);
+  /*-webkit-text-stroke: 1px var(--darker-accent);*/
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .nome-sala {
   text-align: center;
-  font-size: 2vw;
-  color: var(--main-green);
+  text-transform: uppercase;
+  font-size: 4vw;
+  color: #f0f0f0;
   font-weight: 800;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .chamada-detalhes {
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   font-weight: 800;
+  background: #6366f1;
+  border-radius: 18px;
 }
 
 .chamada-detalhes p {
-  color: var(--main-green);
+  color: rgb(211, 221, 248);
   padding: 0 1vw;
 }
 
@@ -151,7 +201,8 @@ header {
   padding: 4vh 0;
   height: 100vh;
   flex-basis: 35%;
-  background-color: var(--light-green);
+  background-color: var(--dark-accent);
+  border-radius: 20px;
 }
 
 #video {
@@ -185,8 +236,9 @@ header {
 }
 
 #time {
-  font-size: 4vw;
+  font-size: 3vw;
   margin-bottom: 10px;
+  color: #800404;
 }
 
 #date {
@@ -197,4 +249,114 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100vw;
+}
+
+
+/* stilos do carrossel */
+
+.historico-section { /* Seção do Carrossel Inferior Ativa */
+
+    margin-top: 25px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.historico-section h2 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.carrossel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carrossel-track {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+}
+
+/* Animação aplicada via JS quando transbordar */
+.carrossel-animado {
+    animation: rolarCarrossel 25s linear infinite;
+}
+
+.carrossel-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes rolarCarrossel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.bloco-mini {
+    flex: 0 0 130px;
+    padding: 12px;
+    border-radius: 12px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: surgimento 0.3s ease-out;
+}
+
+.bloco-mini .mini-senha {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.bloco-mini .mini-sala {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2px 6px;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+
+
+
+
+/* Botão Flutuante (Simulador) Reativado */
+.btn-floating {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #6366f1;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: transform 0.2s;
+}
+
+.btn-floating:active {
+    transform: scale(0.9);
+}
+
+
+@keyframes surgimento {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
