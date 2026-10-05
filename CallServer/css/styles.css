@@ -19,12 +19,22 @@
   font-family: "Helvetica", sans-serif;
 }
 
+/* página em 3 linhas: cabeçalho, conteúdo e rodapé */
+html,
 body {
-  background-color: var(--main-green);
-  max-height: 90vh;
-  overflow: hidden;
+  height: 100%;
 }
 
+body {
+  background-color: var(--main-green);
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 6px;
+}
+
+/* ===== Cabeçalho ===== */
 header {
   display: flex;
   align-items: center;
@@ -33,34 +43,16 @@ header {
   color: var(--white);
   gap: 2vw;
   border-radius: 8px;
-  border-style: 4px solid blue;
 }
 
-#ubs {
-  display: flex;
-  font-size: 80px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: rgb(0, 255, 179);
-
+#logo {
+  width: 75px;
 }
-
-#chamadas {
-  border: 1px solid rgb(173, 113, 252);
-  border-radius: 8px;
-}
-
-/*.wrapper {
-  border-top: 4px solid blue;
-  border-bottom: 2px dashed gray;
-  border-left: 1px solid black;
-  border-right: none;
-  border: 2px solid #6366f1;
-}*/
 
 #prefeitura {
   font-weight: 800;
   font-size: 1.5rem;
-  color: var(--light-accent);
+  color: var(--white);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   backdrop-filter: blur(5px);
@@ -71,24 +63,33 @@ header {
   color: var(--white);
 }
 
-#logo {
-  width: 75px;
+#ubs {
+  display: flex;
+  font-size: 80px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: rgb(0, 255, 179);
 }
 
+/* ===== Conteúdo ===== */
 #wrapper {
   display: flex;
+  min-height: 0;
+  overflow: hidden;
   background-color: #412f50;
   border-radius: 8px;
-  border-style: 4px solid blue;
   border: 2px solid #6366f1;
 }
 
 #chamadas {
   flex-basis: 65%;
   padding: 4vh;
+  overflow: hidden;
+  border: 1px solid rgb(173, 113, 252);
+  border-radius: 8px;
 }
 
-.chamada { /* ultima chamada */
+/* chamada atual (bloco grande) */
+.chamada {
   border-radius: 10px;
   background: linear-gradient(90deg, #52c0db 60%, #0084ff 100%);
   border: 2px solid royalblue;
@@ -96,11 +97,11 @@ header {
   color: #fff;
   animation: surgimento 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   transition: all 0.8s ease;
-
 }
 
 .nome-paciente {
-  font-size: 4vw;
+  font-size: clamp(1.5rem, 4vw, 4rem);
+  overflow-wrap: anywhere;
   width: 80%;
   font-weight: 800;
   text-align: center;
@@ -112,13 +113,7 @@ header {
   padding: 8px 12px;
   margin-top: 2px;
   letter-spacing: 1px;
-  /*color: var(--dark-accent);*/
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-  /*-webkit-text-stroke: 1px var(--darker-accent);*/
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .nome-sala {
@@ -145,6 +140,16 @@ header {
   padding: 0 1vw;
 }
 
+/* estado vazio */
+.aguardando {
+  text-align: center;
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 800;
+  padding: 6vh 0;
+}
+
+/* ===== Linha do tempo (chamadas anteriores) ===== */
 #historico-label {
   display: flex;
   justify-content: center;
@@ -155,52 +160,91 @@ header {
   color: var(--white);
 }
 
+#h-header {
+  display: none;
+}
+
 #historico {
   display: flex;
   flex-direction: column;
-  gap: 0.5vh;
   justify-content: center;
+  padding: 0 2vw;
 }
 
-.h-chamada {
-  display: flex;
-  border: 4px solid var(--light-green);
-  justify-content: space-between;
-  padding: 8px;
-  background-color: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-weight: 800;
+.tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5.5rem 28px 1fr;
+  align-items: center;
+  padding: 6px 0;
 }
 
-.h-chamada p {
-  flex: 1;
-  text-align: center;
-  color: var(--main-green);
-  padding: 0 1vw;
+/* linha vertical que liga os pontos */
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: calc(5.5rem + 12px);
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--light-green);
 }
 
-.h-chamada p:nth-child(1) {
-  text-align: left;
+.tl-item:first-child::before {
+  top: 50%;
 }
 
-.h-chamada p:nth-child(3) {
+.tl-item:last-child::before {
+  bottom: 50%;
+}
+
+.tl-hora {
   text-align: right;
-}
-
-#h-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px;
-  font-size: 1.1rem;
+  padding-right: 12px;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--white);
 }
 
+.tl-ponto {
+  justify-self: center;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--light-accent);
+  border: 3px solid var(--white);
+}
+
+.tl-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: var(--white);
+  border-radius: 12px;
+}
+
+.tl-nome {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--main-green);
+  overflow-wrap: anywhere;
+}
+
+.tl-sala {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--dark-accent);
+  white-space: nowrap;
+}
+
+/* ===== Coluna da direita (vídeo, relógio) ===== */
 #ads {
   padding: 4vh 0;
-  height: 100vh;
   flex-basis: 35%;
+  overflow: hidden;
   background-color: var(--dark-accent);
   border-radius: 20px;
 }
@@ -215,7 +259,7 @@ header {
   height: 34vh;
   border-radius: 8px;
   background: var(--light-green);
-  border: 4px,solid, rgb(8, 56, 8);
+  border: 4px solid rgb(8, 56, 8);
 }
 
 .time-container {
@@ -230,126 +274,62 @@ header {
   place-content: center;
 }
 
-#location {
-  font-size: 1vw;
-  margin-bottom: 10px;
-}
-
 #time {
   font-size: 3vw;
+  font-weight: 700;
   margin-bottom: 10px;
-  color: #800404;
+  color: #fff;
 }
 
 #date {
   font-size: 1.25vw;
 }
 
+/* ===== Rodapé ===== */
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
+  width: 100%;
 }
 
-
-/* stilos do carrossel */
-
-.historico-section { /* Seção do Carrossel Inferior Ativa */
-
-    margin-top: 25px;
-    margin-bottom: 20px;
-    overflow: hidden;
+#versao {
+  display: block;
+  text-align: right;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  color: var(--white);
+  opacity: 0.6;
 }
 
-.historico-section h2 {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-}
-
-.carrossel-wrapper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.carrossel-track {
-    display: flex;
-    gap: 12px;
-    width: max-content;
-}
-
-/* Animação aplicada via JS quando transbordar */
-.carrossel-animado {
-    animation: rolarCarrossel 25s linear infinite;
-}
-
-.carrossel-track:hover {
-    animation-play-state: paused;
-}
-
-@keyframes rolarCarrossel {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-.bloco-mini {
-    flex: 0 0 130px;
-    padding: 12px;
-    border-radius: 12px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    animation: surgimento 0.3s ease-out;
-}
-
-.bloco-mini .mini-senha {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.bloco-mini .mini-sala {
-    font-size: 0.75rem;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 2px 6px;
-    border-radius: 6px;
-    width: fit-content;
-}
-
-
-
-
-
-/* Botão Flutuante (Simulador) Reativado */
+/* ===== Botão de teste ===== */
 .btn-floating {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #6366f1;
-    color: white;
-    border: none;
-    font-size: 2rem;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    transition: transform 0.2s;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #6366f1;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: transform 0.2s;
+}
+
+.btn-floating[hidden] {
+  display: none;
 }
 
 .btn-floating:active {
-    transform: scale(0.9);
+  transform: scale(0.9);
 }
 
-
+/* ===== Animação da chamada nova ===== */
 @keyframes surgimento {
   from {
     opacity: 0;
@@ -359,4 +339,7 @@ footer {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+.nome-paciente {
+  margin: 2px auto 0;
 }
