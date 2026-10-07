@@ -1,0 +1,31 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/icon128.png",
+         "16": "icons/icon16.png",
+         "48": "icons/icon48.png"
+      },
+      "default_popup": "popup.html"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "content.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   } ],
+   "description": "Extensão para conectar o sistema e-sus com um painel de chamadas - desenvolvido por SITEG.",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArLInO2E/dxdFFsncclENP0gbSqEWxPFXhiJg/xN4ug47RGueXxaHewIWXKDsWtm6GqesvraiV3a2Y+rSYk4QaT4faLHJFQR6wtRQhVbpCBB51dFyv3Ubp21L0ecvNRU5+Dtri3Dj0fQyU3OCjooECPfVHvGPaAFfa9nvzSFMrlgSfEFFBJHF2MsxpVHEnKQIyjH8hU6oheUUFOXoRAp7vDQT/zmHwpt2Yk86gzZUio3af5i8MiR0XXfGMn/D+HrwhcjnofRwe+zvj2DgD0MU0P7ErasgysgAJrioLB4tUjhSmy/888NlYZAPuZqv7jF9I1RxgHQpmePbOCR2W0GfrwIDAQAB",
+   "manifest_version": 3,
+   "name": "Painel E-SUS - [SITEC]",
+   "permissions": [ "storage", "activeTab", "scripting" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.0"
+}
