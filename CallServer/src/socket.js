@@ -93,7 +93,7 @@ function speak(texto) {
 }
 
 function anunciar(c) {
-  audio.play().catch(() => {}); // o navegador pode bloquear até a 1ª interação
+  audio.play().catch((e) => console.error("Erro no áudio:", e));
   setTimeout(() => {
     speak(`${nomeExibido(c.currentPerson).replace(".", "")}, ${c.roomName}`);
   }, 1000);
@@ -132,6 +132,7 @@ btn.addEventListener("click", async () => {
     resultado = "!";
     console.error("Erro ao enviar chamada de teste:", erro);
   }
+  // mostra o resultado no próprio botão por 2,5 segundos
   btn.style.fontSize = "1.1rem";
   btn.textContent = resultado;
   setTimeout(() => {
