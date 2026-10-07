@@ -28,6 +28,11 @@ app.get("/debug", (req, res) => {
   res.sendStatus(200);
 });
 
+// usado pela extensão para mostrar "Conectado" / "Desconectado"
+app.get("/ping", (req, res) => {
+  res.sendStatus(200);
+});
+
 const MAX_CHAMADAS = 11;
 let chamadas = [];
 
