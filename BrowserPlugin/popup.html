@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head lang="pt-br">
+    <title>Painel E-SUS</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h3>Painel E-SUS</h3>
+      <div id="statusBar">
+        <span id="statusDot" class="dot-disconnected"></span>
+        <span id="statusText">Desconectado</span>
+      </div>
+    </header>
+
+    <div class="section">
+      <label for="roomNameInput">Consultório</label>
+      <p class="hint">Digite o nome <strong>exatamente</strong> como deve aparecer no painel e ser anunciado pelo sistema.</p>
+      <div class="input-row">
+        <input type="text" id="roomNameInput" placeholder="ex: Consultório 03" />
+        <button id="setRoom">Salvar</button>
+      </div>
+      <p id="message" class="feedback"></p>
+    </div>
+
+    <div class="section">
+      <label for="serverUrlInput">Servidor</label>
+      <p class="hint">Informe o endereço <strong>completo</strong>, incluindo o protocolo <strong>http://</strong> ou <strong>https://</strong> e a porta.</p>
+      <div class="input-row">
+        <input type="text" id="serverUrlInput" placeholder="http://192.168.1.100:53520/" />
+        <button id="setServer">Salvar</button>
+      </div>
+      <p id="messageServer" class="feedback"></p>
+    </div>
+
+    <script defer src="popup.js"></script>
+  </body>
+</html>
