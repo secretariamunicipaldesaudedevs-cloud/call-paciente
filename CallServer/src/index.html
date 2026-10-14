@@ -63,5 +63,13 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/src/socket.js"></script>
+    <script>
+      // Mostra o nome da UBS vindo do endereço: /?ubs=Pioneiros
+      const ubsNome = new URLSearchParams(location.search).get("ubs");
+      if (ubsNome) {
+        document.getElementById("ubs").textContent = "UBS " + ubsNome;
+        document.title = "Painel e-sus - UBS " + ubsNome;
+      }
+    </script>
   </body>
 </html>
